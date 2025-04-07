@@ -1,0 +1,36 @@
+﻿@model HospitalManagementSystem.ViewModel.PatientVM
+
+
+<table class="table table-bordered table-striped table-striped-columns table-responsive">
+    <thead>
+        <tr>
+            <th>Doctor name</th>
+            <th>Appointment Date</th>
+            <th>Reason</th>
+            <th>
+                <button type="submit" class="btn btn-info" value="Add" name="operation">Add</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Appointments.Count; i++)
+        {
+            <tr>
+                <td>
+                    @Html.TextBoxFor(e => Model.Appointments[i].DoctorName, new { @class = "form-control" })
+                    @*@Html.TextBox($"Experiences[{i}].CompanyName")*@
+                </td>
+                <td>
+                    @Html.TextBoxFor(e => Model.Appointments[i].AppointmentDate, new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(e => Model.Appointments[i].Reason, new { @class = "form-control" })
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-danger" value="Delete-@i" name="operation">Delete</button>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
